@@ -1,0 +1,662 @@
+/* ==========================================================
+   Blog de Nancy Salcedo · estilo Y2K
+   Paleta: rojo, gris, blanco, amarillo, fucsia (+ negro para contornos)
+   Funciona con tu HTML tal cual, sin cambiarlo.
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+  --rojo: #E10600;
+  --gris: #D4D0C8;
+  --gris-claro: #E8E8E8;
+  --gris-oscuro: #808080;
+  --blanco: #FFFFFF;
+  --amarillo: #FFE600;
+  --fucsia: #FF1FAE;
+  --tinta: #111111;
+
+  --display: "Archivo Black", Impact, sans-serif;
+  --pixel: "Silkscreen", "Courier New", monospace;
+  --cuerpo: Verdana, Tahoma, sans-serif;
+
+  --sombra: 7px 7px 0 var(--tinta);
+  --sombra-chica: 4px 4px 0 var(--tinta);
+  --bisel: inset 2px 2px 0 var(--blanco), inset -2px -2px 0 var(--gris-oscuro);
+  --hundido: inset 2px 2px 0 var(--gris-oscuro);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--cuerpo);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tinta);
+  background-color: var(--blanco);
+  background-image: conic-gradient(#EDEDED 25%, transparent 25% 50%, #EDEDED 50% 75%, transparent 75%);
+  background-size: 32px 32px;
+}
+
+/* ---------- Tira roja tipo marquesina ---------- */
+body::before {
+  content: "★ LEAN SIX SIGMA BLACK BELT ★ LÍDER DE UG DE AWS ★ INNOVATEC 2026: NACIONAL ★ TALENTLAND 2026 ★ LEAN SIX SIGMA BLACK BELT ★ LÍDER DE UG DE AWS ★";
+  display: block;
+  background: var(--rojo);
+  color: var(--blanco);
+  border-bottom: 3px solid var(--tinta);
+  padding: 10px 0;
+  font-family: var(--pixel);
+  font-size: 15px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquesina 22s linear infinite;
+}
+
+@keyframes marquesina {
+  from { text-indent: 100%; }
+  to   { text-indent: -250%; }
+}
+
+/* ---------- Anchos generales ---------- */
+header,
+nav,
+main {
+  width: min(1100px, calc(100% - 32px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Header = ventana ---------- */
+header {
+  margin-top: 36px;
+  background: var(--gris);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+  padding: 0 6px 6px;
+}
+
+header::before {
+  content: "nancy_salcedo.exe";
+  display: block;
+  margin: 0 -6px 6px;
+  padding: 6px 12px;
+  background: var(--rojo);
+  color: var(--blanco);
+  border-bottom: 3px solid var(--tinta);
+  font-family: var(--pixel);
+  font-size: 14px;
+}
+
+h1 {
+  margin: 0;
+  padding: 32px 28px;
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  box-shadow: var(--hundido);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(36px, 7vw, 76px);
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow: 4px 4px 0 var(--amarillo);
+}
+
+/* ---------- Nav barra de herramientas ---------- */
+nav {
+  margin-top: 28px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--gris);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  background: var(--gris);
+  border: 2px solid var(--tinta);
+  box-shadow: var(--bisel);
+  color: var(--tinta);
+  text-decoration: none;
+  font-family: var(--pixel);
+  font-size: 13px;
+}
+
+.link:hover,
+.link:focus-visible {
+  background: var(--amarillo);
+}
+
+.link:active {
+  box-shadow: var(--hundido);
+}
+
+.link:last-child {
+  margin-left: auto;
+  background: var(--rojo);
+  color: var(--blanco);
+  box-shadow: inset 2px 2px 0 #FF6B63, inset -2px -2px 0 #8A0400;
+}
+
+.link:last-child:hover,
+.link:last-child:focus-visible {
+  background: var(--fucsia);
+  color: var(--tinta);
+}
+
+/* ---------- Main ---------- */
+main {
+  margin-top: 48px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+}
+
+main > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+}
+
+/* ---------- Video reproductor ---------- */
+video {
+  display: block;
+  align-self: center;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  background: var(--amarillo);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+}
+
+/* ---------- Sticker de carrera ---------- */
+.primario {
+  align-self: flex-start;
+  margin: 0;
+  padding: 10px 18px;
+  background: var(--amarillo);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra-chica);
+  transform: rotate(-2deg);
+  font-family: var(--pixel);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ---------- Títulos tipo marcador ---------- */
+h2 {
+  align-self: flex-start;
+  display: inline-block;
+  margin: 24px 0 0;
+  padding: 4px 22px;
+  background: var(--amarillo);
+  border: 3px solid var(--tinta);
+  box-shadow: 8px 8px 0 var(--rojo);
+  transform: rotate(-1deg);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(26px, 4.5vw, 46px);
+  line-height: 1.15;
+}
+
+#habilidades_tecnicas {
+  background: var(--fucsia);
+  box-shadow: 8px 8px 0 var(--tinta);
+  transform: rotate(1deg);
+}
+
+#aventuras {
+  background: var(--blanco);
+  box-shadow: 8px 8px 0 var(--fucsia);
+}
+
+section h2 {
+  background: var(--fucsia);
+  box-shadow: 8px 8px 0 var(--tinta);
+}
+
+main > div > section:nth-of-type(2) h2 {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+/* ---------- Párrafos del About = hojas ---------- */
+main > p:not(.primario) {
+  margin: 0;
+  padding: 22px 26px;
+  background: var(--blanco);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra-chica);
+}
+
+main > p:not(.primario):nth-of-type(odd) {
+  transform: rotate(-0.3deg);
+}
+
+main > p:not(.primario):nth-of-type(even) {
+  transform: rotate(0.3deg);
+}
+
+main > p:not(.primario):nth-of-type(4n) {
+  background: var(--amarillo);
+}
+
+strong {
+  padding: 0 4px;
+  background: var(--amarillo);
+}
+
+main > p:not(.primario):nth-of-type(4n) strong {
+  background: var(--blanco);
+}
+
+/* ---------- Imágenes = polaroids ---------- */
+main img {
+  display: block;
+  align-self: center;
+  width: min(100%, 420px);
+  height: auto;
+  padding: 14px 14px 52px;
+  background: var(--blanco);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+  transform: rotate(-2deg);
+}
+
+main > div > img:last-of-type {
+  transform: rotate(2deg);
+}
+
+/* ---------- Listas ---------- */
+
+/* Habilidades archivo .ini */
+main > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--blanco);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+}
+
+main > ul li {
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--tinta);
+}
+
+main > ul li:last-child {
+  border-bottom: 0;
+}
+
+main > ul li:nth-child(even) {
+  background: var(--gris-claro);
+}
+
+main > ul li:last-child {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+main > ul li:last-child strong {
+  background: var(--amarillo);
+  color: var(--tinta);
+}
+
+/* Choco-Aventuras stickers */
+main > div > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+main > div > ul li {
+  min-height: 150px;
+  padding: 24px;
+  background: var(--blanco);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+  font-weight: 700;
+  line-height: 1.4;
+  transform: rotate(-1.5deg);
+}
+
+main > div > ul li:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+main > div > ul li:nth-child(6n + 1) { background: var(--amarillo); }
+main > div > ul li:nth-child(6n + 2) { background: var(--fucsia); }
+main > div > ul li:nth-child(6n + 3) { background: var(--blanco); }
+main > div > ul li:nth-child(6n + 4) { background: var(--gris); }
+main > div > ul li:nth-child(6n + 5) { background: var(--rojo); color: var(--blanco); }
+main > div > ul li:nth-child(6n + 6) { background: var(--amarillo); }
+
+/* ---------- Secciones ---------- */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+
+/* ---------- Preguntas frecuentes ---------- */
+details {
+  background: var(--blanco);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra-chica);
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 48px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "+";
+  flex: 0 0 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fucsia);
+  border: 2px solid var(--tinta);
+  font-family: var(--pixel);
+  font-size: 16px;
+}
+
+details[open] > summary {
+  background: var(--amarillo);
+  border-bottom: 3px solid var(--tinta);
+}
+
+details[open] > summary::before {
+  content: "-";
+}
+
+details p {
+  margin: 0;
+  padding: 16px 20px 18px 56px;
+  color: #333333;
+}
+
+/* ---------- Botones cuenta interbancaria  ---------- */
+button {
+  align-self: flex-start;
+  min-height: 48px;
+  padding: 12px 24px;
+  background: var(--rojo);
+  color: var(--blanco);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra-chica);
+  font-family: var(--display);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--fucsia);
+  color: var(--tinta);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+/* ---------- Diálogo del número de cuenta ---------- */
+dialog {
+  width: min(420px, calc(100% - 32px));
+  padding: 0 20px 20px;
+  background: var(--gris);
+  color: var(--tinta);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+}
+
+dialog::before {
+  content: "cuenta.exe";
+  display: block;
+  margin: 0 -20px 18px;
+  padding: 6px 12px;
+  background: var(--fucsia);
+  border-bottom: 3px solid var(--tinta);
+  font-family: var(--pixel);
+  font-size: 14px;
+}
+
+dialog::backdrop {
+  background: rgba(17, 17, 17, 0.65);
+}
+
+dialog h2 {
+  margin: 0 0 12px;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+  font-size: 26px;
+  color: var(--tinta);
+}
+
+dialog p {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  box-shadow: var(--hundido);
+  font-family: var(--pixel);
+  font-size: 15px;
+}
+
+#Ocultar {
+  background: var(--gris);
+  color: var(--tinta);
+  box-shadow: var(--bisel);
+  border: 2px solid var(--tinta);
+  font-size: 15px;
+}
+
+#Ocultar:hover {
+  background: var(--amarillo);
+}
+
+/* ---------- Formulario ventana de contacto ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 22px 24px;
+  background: var(--gris);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra);
+}
+
+form::before {
+  content: "contacto.exe";
+  display: block;
+  margin: 0 -22px;
+  padding: 6px 12px;
+  background: var(--fucsia);
+  border-bottom: 3px solid var(--tinta);
+  font-family: var(--pixel);
+  font-size: 14px;
+}
+
+fieldset {
+  margin: 0;
+  padding: 20px 20px 8px;
+  border: 2px solid var(--tinta);
+}
+
+legend {
+  padding: 0 10px;
+  background: var(--gris);
+  font-family: var(--pixel);
+  font-size: 13px;
+}
+
+fieldset > div {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  background: var(--blanco);
+  color: var(--tinta);
+  border: 2px solid var(--tinta);
+  box-shadow: var(--hundido);
+  border-radius: 0;
+  font-family: var(--cuerpo);
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: #5C5C5C;
+}
+
+/* checkbox: label e input en la misma línea */
+fieldset > div:has(> input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+
+fieldset > div:has(> input[type="checkbox"]) label {
+  margin: 0;
+}
+
+fieldset > div:has(> input[type="checkbox"]) input {
+  order: -1;
+}
+
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--rojo);
+}
+
+input[type="submit"] {
+  align-self: flex-start;
+  min-height: 52px;
+  padding: 14px 32px;
+  background: var(--fucsia);
+  color: var(--tinta);
+  border: 3px solid var(--tinta);
+  box-shadow: var(--sombra-chica);
+  font-family: var(--display);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: var(--amarillo);
+}
+
+input[type="submit"]:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+/* ---------- Foco visible ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--fucsia);
+  outline-offset: 2px;
+}
+
+/* ---------- Footer  barra de tareas ---------- */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding: 14px max(16px, calc((100% - 1100px) / 2));
+  background: var(--gris);
+  border-top: 4px solid var(--tinta);
+  box-shadow: inset 0 3px 0 var(--blanco);
+}
+
+
+footer p {
+  flex: 1 1 240px;
+  margin: 0;
+  font-size: 14px;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  background: var(--gris);
+  color: var(--tinta);
+  border: 2px solid var(--tinta);
+  box-shadow: var(--bisel);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer a:hover,
+footer a:focus-visible {
+  background: var(--amarillo);
+}
+
+
+/* ---------- Respetar "reducir movimiento" ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+}
+  }
